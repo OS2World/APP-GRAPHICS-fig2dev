@@ -1,0 +1,39 @@
+fig2dev for OS/2 with EMX
+=========================
+
+I ported this really quick and dirty one night, or early morning.  I
+wanted to be able to use it to convert the FIG files output from
+JavaFIG to some form usable with LaTeX.  I have no idea if it can
+convert to forms other than PostScript, I never tried it.  (Actually,
+I'm not sure outputing to PostScript works completely correctly, it
+crashed my GhostScript 5.10.)  It did manage to output a good EPS file
+though, which is what I really wanted.  So maybe you'll find it usefull
+too.
+
+It requires EMX to run, download the latest version from a local OS/2
+archive.  It may run under Windows or DOS, I have no idea.  If it does
+and you tell me, I'll take your word on it.  Under DOS or Windows, you
+may want to try RSX instead of EMX for DPMI memory support.
+
+I didn't write this software, it's part of the Transfig package.  That
+package is available from
+ftp://ftp.x.org/contrib/applications/drawing_tools/transfig.  This port
+is based on Transfig 3.2.1.  It was the latest as of October 5, 1998,
+when I ported it.  I hope I didn't violate anyone's copyrights, but I'm
+not porting all of Transfig.  You can download the original source or
+read what I did to it, not much, and read whomever's copyrights are
+still in there.
+
+There are some caveats to the port.  I wouldn't try to convert to JPEG.
+I can't imagine that this will work.  I didn't include the code
+necessary, and I hope that if you try the most that happens is that it
+tells you so.  I have not tried this, and knowing that it won't work,
+don't intend too.  Convert your file into EPS and then use GhostScript
+or some other tool to convert it into JPEG if you want; sorry about the
+hassle, but I didn't want to convert the JPEG library too.  For that
+matter, FIG which has an embedded JPEG probably won't work either!
+
+I don't know what the function call "cfree" does.  It was in the file
+free.c.  Since I couldn't find it, or what it did, I changed it to
+free.  The program might crash due to this, but then it hasn't for me
+yet; at least I hope it doesn't have a memory leak.
